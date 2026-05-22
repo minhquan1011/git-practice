@@ -1,0 +1,22 @@
+#!/bin/sh
+read -p "파일/디렉토리 이름 입력[enter]: " filepath
+if [ ! -e "$filepath" ]; then
+	echo $filepath은 존재하지 않습니다.
+else
+	if [ -d "$filepath" ]; then
+		echo $filepath은 디렉토리 입니다.
+	elif [ -L "$filepath" ]; then 
+		echo $filepath은 심볼릭링크 입니다.
+	elif [ -c "$filepath" ]; then
+		echo $filepath은 문자장치 입니다.
+	elif [ -b "$filepath" ]; then
+		echo $filepath은 블록장치 입니다.
+	elif [ -p "$filepath" ]; then
+		echo $filepath은 파이프 입니다.
+	elif [ -s "$filepath" ]; then
+		echo $filepath은 소켓 입니다.
+	elif [ -f "$filepath" ]; then
+		echo $filepath은 보통파일 입니다.
+	fi
+fi
+
