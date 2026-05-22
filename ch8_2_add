@@ -1,0 +1,8 @@
+#!/bin/sh
+s=0
+for arg in "$@"
+do 
+s=`expr $s + $arg`
+done
+echo $s
+
